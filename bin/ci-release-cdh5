@@ -1,0 +1,6 @@
+#/bin/sh
+
+JVM_OPTS="-Dfile.encoding=UTF8 -XX:MaxPermSize=512m -Xms512m -Xmx2g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC"; export JVM_OPTS
+
+./sbt -Dsbt.log.noformat=true ';set version in ThisBuild <<= (version in ThisBuild)(_.replace("SNAPSHOT", "cdh5")); +publish; echo-version'
+
